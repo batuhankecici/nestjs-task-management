@@ -2,6 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { Task,TaskStatus } from './task.model';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
+import xlsx from 'node-xlsx';
+import { range } from 'rxjs';
 
 @Injectable()
 export class TasksService {
@@ -61,4 +63,20 @@ export class TasksService {
         }
         return tasks;
     }
+    exportExcel():Buffer{
+        const tasks = this.getAllTasks();
+        const headers = ["ID","TITLE","DESCRİPTİON","STATUS"]
+        const data = [
+            headers
+          ];
+          tasks.forEach(element => {
+              var arr = [];
+              arr.push(element.id,element.title,element.description,element.status);
+              data.push(arr);
+          });
+          console.log(data);
+          var buffer = xlsx.build([{name: 'mySheetName', data: data,options:null}]); 
+          return buffer;
+    }
+
 }
