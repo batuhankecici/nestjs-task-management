@@ -74,9 +74,22 @@ export class TasksService {
               arr.push(element.id,element.title,element.description,element.status);
               data.push(arr);
           });
-          console.log(data);
           var buffer = xlsx.build([{name: 'mySheetName', data: data,options:null}]); 
           return buffer;
     }
 
+    exportCsv():string{
+        const tasks = this.getAllTasks();
+        const headers = ["ID","TITLE","DESCRİPTİON","STATUS"]
+        var writeStream: string;
+        writeStream = "";
+        writeStream += headers + "\n";
+        tasks.forEach(element => {
+            var arr = [];
+            arr.push(element.id,element.title,element.description,element.status);
+            writeStream += arr+"\n";
+        });
+   
+        return writeStream;
+    }
 }

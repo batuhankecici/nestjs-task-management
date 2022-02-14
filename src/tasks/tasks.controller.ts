@@ -50,5 +50,13 @@ export class TasksController {
         res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         return res.send(buffer);
     }
+    @Get('/csv/export')
+    exportCsv(@Res() res:Response){
+        const headers = ["ID","TITLE","DESCRİPTİON","STATUS"]
+        const writeString = this.tasksService.exportCsv()
+        res.header('Content-disposition', 'attachment; filename=tasks.csv');
+        res.type('text/csv; charset=utf-8');
+        return res.send(writeString);
+    }
 
 }
