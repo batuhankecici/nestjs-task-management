@@ -1,7 +1,7 @@
 {
   "name": "nestjs-task-management",
   "version": "0.0.1",
-  "description": "",
+  "description": "<p align=\"center\">   <a href=\"http://nestjs.com/\" target=\"blank\"><img src=\"https://nestjs.com/img/logo_text.svg\" width=\"320\" alt=\"Nest Logo\" /></a> </p>",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
@@ -21,15 +21,18 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/common": "^8.0.0",
+    "@nestjs/common": "^8.3.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/typeorm": "^8.0.3",
+    "ajv": "^6.12.6",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "g": "^2.0.1",
     "node-xlsx": "^0.21.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0",
+    "rxjs": "^7.5.4",
     "uuid": "^8.3.2",
     "xlsx": "^0.18.1"
   },
@@ -72,5 +75,17 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/batuhankecici/nestjs-task-management.git"
+  },
+  "bugs": {
+    "url": "https://github.com/batuhankecici/nestjs-task-management/issues"
+  },
+  "homepage": "https://github.com/batuhankecici/nestjs-task-management#readme"
 }
